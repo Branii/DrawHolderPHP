@@ -8,21 +8,32 @@
 </head>
 <body>
     
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
 
 
     function myfuction(){
-        console.log("execute " + getCurrentTime());
+        getCurrentTime();
     }
 
-    setInterval(myfuction,60000);
+    setInterval(myfuction,1000);
+
     function getCurrentTime(){
         var date = new Date();
         var hour = date.getHours().toString().padStart(2,"0");
         var minute = date.getMinutes().toString().padStart(2,"0");
         var second = date.getSeconds().toString().padStart(2,"0");
-        return hour + ":" + minute + ":" + second;
+        const drawTime = hour + ":" + minute + ":" + second;
+        if(second == "00"){
+            $.post("src/exec/_drawnumber.php",{
+            drawTime : drawTime
+            },function(data){
+                console.log(data);
+            })
+        }else{
+            console.log(second);
+        }
+       
     }
 
     myfuction();
