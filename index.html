@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+
+
+    function myfuction(){
+        console.log("execute " + getCurrentTime());
+    }
+
+    setInterval(myfuction,60000);
+    function getCurrentTime(){
+        var date = new Date();
+        var hour = date.getHours().toString().padStart(2,"0");
+        var minute = date.getMinutes().toString().padStart(2,"0");
+        var second = date.getSeconds().toString().padStart(2,"0");
+        return hour + ":" + minute + ":" + second;
+    }
+
+    myfuction();
+
+</script>
+
+</body>
+</html>
