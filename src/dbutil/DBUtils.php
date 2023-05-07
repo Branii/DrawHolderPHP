@@ -1,5 +1,5 @@
 <?php
-
+include "config.php";
 /**
  * Summary of DBUtils
  */
@@ -7,9 +7,8 @@ class DBUtils{
 
     public function panic() {
 
-        $dsn = "mysql:host=localhost;dbname=lott";
         try {
-            $con = new PDO($dsn,"root","root");
+            $con = new PDO(SOURCE,USERNAME,PASSWORD);
             return $con;
         } catch (\Throwable $th) {
             //throw $th;
